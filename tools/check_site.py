@@ -32,6 +32,18 @@ for source in (ROOT / 'assets/css').glob('*.css'):
     for link in re.findall(r'url\([\"\']?([^\)\"\']+)', source.read_text(encoding='utf-8')):
         check_link(source, link)
 
+# The modal and standalone page must present the same policy.
+home = (ROOT / 'index.html').read_text(encoding='utf-8')
+policy = (ROOT / 'security/index.html').read_text(encoding='utf-8')
+panel = re.search(r'<article id="security">(.*?)</article>', home, re.S)
+main = re.search(r'<main>(.*?)</main>', policy, re.S)
+def visible_text(markup):
+    return ' '.join(re.sub(r'<[^>]+>', ' ', markup).split())
+if not panel or not main or visible_text(panel[1]) != visible_text(main[1]):
+    errors.append('Homepage security panel and standalone policy differ.')
+if 'href="#security">Security' not in home:
+    errors.append('Security navigation must open the homepage panel.')
+
 primary = ROOT / '.well-known/security.txt'
 text = primary.read_text(encoding='utf-8')
 if primary.read_bytes() != (ROOT / 'security.txt').read_bytes():

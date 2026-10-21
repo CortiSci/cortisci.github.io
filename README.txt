@@ -20,7 +20,8 @@ Quick verification: python tools/check_site.py
 
 Security publication
 --------------------
-security/index.html is the coordinated vulnerability disclosure policy.
+The homepage #security panel and security/index.html contain the same policy.
+Keep their policy text in sync when editing; the quick check verifies this.
 .well-known/security.txt is the standard discovery file; security.txt is an
 identical root-level copy. Update both together. These public documents cover
 CortiPix software and device firmware; internal risk records, vulnerability
