@@ -1675,3 +1675,7 @@ input, select, textarea {
   display: none !important;
 }
 
+/* Keep policy headings compact and readable. */
+#security h2 {
+  letter-spacing: 0.04em;
+}
