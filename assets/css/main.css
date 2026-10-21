@@ -1675,7 +1675,7 @@ input, select, textarea {
   display: none !important;
 }
 
-/* Keep policy headings compact and readable. */
-#security h2 {
+/* Keep About and Security headings compact and readable. */
+#intro h2, #about h2, #security h2 {
   letter-spacing: 0.04em;
 }
