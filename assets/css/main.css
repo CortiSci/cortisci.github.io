@@ -1675,3 +1675,7 @@ input, select, textarea {
   display: none !important;
 }
 
+/* Keep About and Security headings compact and readable. */
+#intro h2, #about h2, #security h2 {
+  letter-spacing: 0.04em;
+}
